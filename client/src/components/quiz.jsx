@@ -6,22 +6,22 @@ function Quiz() {
         event.preventdefault();
         const response = await fetch(URL);
         const quizData = await response.json();
-        setquestion(quizData);
+        setQuestion(quizData);
     }
-    const [question, setquestion] = useState({
+    const [question, setQuestion] = useState({
         question: "",
-        answers: [],
+        answers: ["", "", "", ""],
         correct: ""
-    })
+    });
 
     return (
         <div>
 
-        <h1>question</h1>
-        <button>a1</button>
-        <button>a2</button>
-        <button>a3</button>
-        <button>a4</button>
+        <h1>{question.question}</h1>
+        <button>question.answers[0]</button>
+        <button>question.answers[1]</button>
+        <button>question.answers[2]</button>
+        <button>question.answers[3]</button>
         <button type="submit" onClick={getQuestion}>Submit</button>
         </div>
     )
