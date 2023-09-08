@@ -1,11 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+
 import Quiz from "./components/quiz"
 
 function App() {
 
   return (
-      <div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column'
+        
+    }}>
         <h1>Test your animal knowledge!</h1>
         <Quiz/>
       </div>
