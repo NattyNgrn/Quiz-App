@@ -1,8 +1,12 @@
 function Quiz() {
+
     const URL = "http://localhost:7777/quiz"
+
     async function getQuestion(event){
         event.preventdefault();
-        const response = await fetch(URL)
+        const response = await fetch(URL);
+        const quizData = await response.json();
+        setquestion(...quizData);
     }
     const [question, setquestion] = useState({
         question: "",
