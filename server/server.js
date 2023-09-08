@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-const API = "https://opentdb.com/api.php?amount=49&category=27";
+const API = "https://opentdb.com/api.php?amount=49&category=27&type=multiple";
 const port = process.env.PORT || 7777;
 
 async function getQuiz(API){
