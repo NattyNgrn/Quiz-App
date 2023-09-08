@@ -1,9 +1,11 @@
 import { useState } from "react";
 import * as React from 'react';
+
+//material UI import for colors and buttons
 import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles'; 
 
-
+//color theme for buttons
 const theme = createTheme({
     palette: {
     primary: {
@@ -20,11 +22,16 @@ function Quiz() {
 
     const URL = "http://localhost:7777/quiz"
 
+    //getting the data from the backend for the quiz object
     async function getQuestion(event){
         event.preventDefault();
         const response = await fetch(URL);
         const quizData = await response.json();
+
+        //setting usestate object to the data from the backend
         setQuestion(quizData);
+
+        //setting the result back to nothing so when new question button is clicked the pass or fail phrase is reset.
         setResult("");
     }
     const [question, setQuestion] = useState({
@@ -32,10 +39,15 @@ function Quiz() {
         answers: ["", "", "", ""],
         correct: ""
     });
+
+    //usestate for the pass or fail phrase
     const [result, setResult] = useState("");
+
+    //checking if the answer button they chose is the correct answer
     function checkAnswer(num){
         setResult(question.correct == question.answers[num] ? "CONGRATS" : "FAILED");
     }
+    //styling the postions of things and the colors
     return (
         <div style={{
             display: 'flex',

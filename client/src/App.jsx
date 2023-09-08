@@ -2,7 +2,7 @@
 import Quiz from "./components/quiz"
 
 function App() {
-
+  {/*styling the components and header inside the div instead of css*/}
   return (
       <div style={{
         display: 'flex',
@@ -12,7 +12,7 @@ function App() {
         
     }}>
         <h1>Test your animal knowledge!</h1>
-        <Quiz/>
+        <Quiz/> {/*calling quiz component */}
       </div>
   )
 }
