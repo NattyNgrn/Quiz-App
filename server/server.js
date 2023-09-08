@@ -17,7 +17,7 @@ async function getQuiz(API){
     let answers = data["results"][random]["incorrect_answers"];
     answers.splice(randomIndex, 0, data["results"][random]["correct_answer"])
     const quiz = {
-        question: data["results"][random]["question"],
+        question: data["results"][random]["question"].replace(/&[^;]+;/g, ""),
         answers: answers,
         correct: data["results"][random]["correct_answer"]
     }

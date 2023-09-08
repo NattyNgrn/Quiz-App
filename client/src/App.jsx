@@ -8,7 +8,7 @@ function App() {
   return (
       <div>
         <h1>Test your animal knowledge!</h1>
-        <Quiz/>
+        <Quiz {...Quiz}/>
       </div>
   )
 }
