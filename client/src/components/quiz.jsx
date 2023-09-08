@@ -6,14 +6,11 @@ function Quiz() {
         event.preventdefault();
         const response = await fetch(URL);
         const quizData = await response.json();
-        setquestion(...quizData);
+        setquestion(quizData);
     }
     const [question, setquestion] = useState({
         question: "",
-        a1: "",
-        a2: "",
-        a3: "",
-        a4: "",
+        answers: [],
         correct: ""
     })
 
