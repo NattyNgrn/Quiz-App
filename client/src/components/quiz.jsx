@@ -15,9 +15,8 @@ function Quiz() {
         correct: ""
     });
 
-    function checkAnswer(event){
-        console.log(event)
-        {(question.correct == answer) ? "CONGRATS" : "FAILED"}
+    function checkAnswer(num){
+        return (question.correct == question.answers[num]) ? "CONGRATS" : "FAILED";
     }
     return (
         <div>
