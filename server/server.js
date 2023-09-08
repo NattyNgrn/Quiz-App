@@ -5,11 +5,11 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-const API = "https://opentdb.com/api.php?amount=50&category=27&difficulty=medium";
+const API = "https://opentdb.com/api.php?amount=49&category=27";
 const port = process.env.PORT || 7777;
 
 async function getQuiz(API){
-    let random = Math.floor(Math.random() * 10);
+    let random = Math.floor(Math.random() * 50);
     let randomIndex = Math.floor(Math.random() * 2);
     const response = await fetch(API);
     const data = await response.json();
