@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as React from 'react';
+import Button from '@mui/material/Button';
 function Quiz() {
 
     const URL = "http://localhost:7777/quiz"
@@ -23,12 +25,12 @@ function Quiz() {
         <div>
 
         <h1>{question.question}</h1>
-        <button onClick={(e)=>checkAnswer(0)}>{question.answers[0]}</button>
-        <button onClick={(e)=>checkAnswer(1)}>{question.answers[1]}</button>
-        <button onClick={(e)=>checkAnswer(2)}>{question.answers[2]}</button>
-        <button onClick={(e)=>checkAnswer(3)}>{question.answers[3]}</button>
+        <Button variant="contained" onClick={(e)=>checkAnswer(0)}>{question.answers[0]}</Button>
+        <Button variant="contained" onClick={(e)=>checkAnswer(1)}>{question.answers[1]}</Button>
+        <Button variant="contained" onClick={(e)=>checkAnswer(2)}>{question.answers[2]}</Button>
+        <Button variant="contained" onClick={(e)=>checkAnswer(3)}>{question.answers[3]}</Button>
         {/*<button type="submit" onClick={checkAnswer}>Check answer!</button>*/}
-        <button type="submit" onClick={getQuestion}>Get new question!</button>
+        <Button variant="contained" type="submit" onClick={getQuestion}>Get new question!</Button>
         <h2>{result}</h2>
         </div>
     )
