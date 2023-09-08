@@ -8,15 +8,16 @@ function Quiz() {
         const response = await fetch(URL);
         const quizData = await response.json();
         setQuestion(quizData);
+        setResult("");
     }
     const [question, setQuestion] = useState({
         question: "",
         answers: ["", "", "", ""],
         correct: ""
     });
-
+    const [result, setResult] = useState("");
     function checkAnswer(num){
-        return (question.correct == question.answers[num]) ? "CONGRATS" : "FAILED";
+        setResult(question.correct == question.answers[num] ? "CONGRATS" : "FAILED");
     }
     return (
         <div>
@@ -28,7 +29,7 @@ function Quiz() {
         <button onClick={(e)=>checkAnswer(3)}>{question.answers[3]}</button>
         {/*<button type="submit" onClick={checkAnswer}>Check answer!</button>*/}
         <button type="submit" onClick={getQuestion}>Get new question!</button>
-        <h2>{checkAnswer}</h2>
+        <h2>{result}</h2>
         </div>
     )
 }
