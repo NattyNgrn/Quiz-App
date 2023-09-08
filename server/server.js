@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-const API = "https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple";
+const API = "https://opentdb.com/api.php?amount=50&category=27&difficulty=medium";
 const port = process.env.PORT || 7777;
 
 async function getQuiz(API){
@@ -18,7 +18,7 @@ async function getQuiz(API){
     answers.splice(randomIndex, 0, data["results"][random]["correct_answer"])
     const quiz = {
         question: data["results"][random]["question"].replace(/&[^;]+;/g, ""),
-        answers: answers,
+        answers: answers.map((item) => item.replace(/&[^;]+;/g, "")),
         correct: data["results"][random]["correct_answer"]
     }
     return quiz;
